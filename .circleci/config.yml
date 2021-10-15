@@ -10,10 +10,10 @@ jobs:
     # specify the version you desire here
       - image: circleci/openjdk:8-jdk
     steps:
-    - checkout
+      - checkout
   # Download and cache dependencies
-    - restore_cache:
-        keys: spring5-recipe-app-{{ checksum "pom.xml" }}
+      - restore_cache:
+          keys: spring5-recipe-app-{{ checksum "pom.xml" }}
     - run: mvn install -DskipTests
     - run: mvn dependency:go-offline
     - save_cache:
